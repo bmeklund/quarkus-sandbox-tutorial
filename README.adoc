@@ -1,4 +1,4 @@
-# Quarkus workshop
+# Quarkus Tutorial
 
 ## Overview
 
@@ -12,9 +12,9 @@
 
 Quarkus - supersonic, subatomic container-native Java.  
 This workshop is intended to give you a hands on introduction to using Quarkus for building applications  
-The workshop uses OpenShift Developer Sandbox and the Sandbox IDE(DevSpaces) to develop Quarkus apps and deploy them to a Kubernetes cluster (based on OpenShift Sandbox that is)  
+The workshop uses the Developer Sandbox and OpenShift DevSpaces, Dev Spaces is a Cloud Development Environment(CDE), to develop Quarkus apps and deploy them to a Kubernetes cluster (based on OpenShift that is)  
 
-You can also run this Lab on any other OpenShift cluster, either Managed and Self-Managed by pointing the guides to the correct cluster and namespace.  
+You can also run this Lab on any other OpenShift cluster, either Managed and Self-Managed by configuring the tutorial.  
 
 * OpenShift Container Platform(OCP)
 * Developer Sandbox
@@ -44,4 +44,4 @@ This workshop is based on link:https://antora.org/[Antora] and link:https://gith
 
 To start this workshop, follow the step by step tutorial link for your cluster available below: 
 
-http://redhat-scholars.github.io/quarkus-workshop-sandbox/rhs-quarkus-guides/RHDS/index.html
+http://redhat-scholars.github.io/quarkus-sandbox-tutorial/rhs-quarkus-guides/RHDS/index.html

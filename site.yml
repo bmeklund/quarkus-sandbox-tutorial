@@ -3,12 +3,12 @@ runtime:
 
 site:
   title: Quarkus Workshop Guides
-  url: https://redhat-scholars.github.io/quarkus-workshop-sandbox
+  url: https://redhat-scholars.github.io/quarkus-sandbox-tutorial
   start_page: rhs-quarkus-guides::index.adoc
 
 content:
   sources:
-    - url: https://github.com/redhat-scholars/quarkus-workshop-sandbox.git
+    - url: https://github.com/redhat-scholars/quarkus-sandbox-tutorial.git
       branches: [master]
       start_path: documentation
 

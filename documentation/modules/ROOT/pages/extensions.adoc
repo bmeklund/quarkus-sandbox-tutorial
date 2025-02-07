@@ -72,7 +72,11 @@ Select *Log in with DevSandbox* if the choice opens up.
 
 image::loginDevSandbox.png[login,800]
 
-Take note of the cluster details in the url of the browser. It will be something like this: https://console-openshift-console.apps.sandbox-m2.ll9k.p1.openshiftapps.com/add/ns/yourusername-dev
+Take note of the cluster details in the url of the browser. It will be something like this:
+[source,none]
+----
+ https://console-openshift-console.apps.sandbox-m2.ll9k.p1.openshiftapps.com/add/ns/yourusername-dev
+----
 
 ### Now let's start the developer IDE.
 

@@ -105,12 +105,14 @@ And now we can access using `curl` once again. In the Terminal, run this command
 
 [source,sh,role="copypaste copypaste"]
 ----
-curl https://$(oc get route people -o=go-template  --template='{{ .spec.host }}')/hello/greeting/quarkus-on-openshift
+curl http://$(oc get route people -o=go-template  --template='{{ .spec.host }}')/hello/greeting/quarkus-on-openshift
 ----
 
 [NOTE]
 ====
 The above `curl` command constructs the URL to your running app on the cluster using the `oc get route` command.
+
+If you get an error page stating the Application is not ready, try changing between http/https.
 ====
 
 You should see something like:

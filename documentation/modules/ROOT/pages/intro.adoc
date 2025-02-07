@@ -141,6 +141,15 @@ image::ds-trust-popup.png[ds, 800]
 
 You'll use all of these during the course of this workshop, so keep this browser tab open throughout. **If things get weird, you can simply reload the browser tab to refresh the view.**
 
+[NOTE]
+====
+If your workspace have closed down due to inactivity you can restart it again from the Workspace overview, as detailed below. This also goes for if you end up with some strage behaviour in your workspace(if it gets unresponsive or you get strange errors in the IDE)
+
+Just go to the DevSpaces overview, on the left hand side in the *recent workspaces* you will find the *quarkus-workshop* workspace. Hover over the name and click the 3 dots and choose Stop/Restart or Open to restart and access your workspace.
+
+image::restart-workspace.png[restart, 800]
+====
+
 The state of your changes will be saved in a persistent volume on your Sandbox environment so if you need to shut down for a while you can continue later on.(As long as your sandbox environment is not decomissioned that is).
 
 Ready? Let's go!

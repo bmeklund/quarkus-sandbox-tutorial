@@ -106,7 +106,7 @@ Then run the following command in the terminal in Dev Spaces:
 
 [source,sh,role="copypaste"]
 ----
-oc apply -f src/main/kubernetes/kafka.yaml 
+oc apply -f src/main/kubernetes/kafka.yml 
 ----
 
 This will install the kafka cluster in your namespace. You will be able to see it in the Topology view and follow the creation of the cluster.
@@ -160,7 +160,7 @@ Then lastly you create the topic by running this command:
 
 [source,sh,role="copypaste"]
 ----
-bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 1 --replication-factor 1 --topic someothername
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 1 --replication-factor 1 --topic names
 ----
 ====
 
@@ -376,7 +376,7 @@ Our application should be up and running in a few seconds after the build comple
 
 [source,sh,role="copypaste"]
 ----
-oc get route people -o=go-template --template='https://{{ .spec.host }}/names.html {{printf "\n"}}'
+oc get route people -o=go-template --template='http://{{ .spec.host }}/names.html {{printf "\n"}}'
 ----
 
 Open a new browser tab and paste the result to view the graphical name cloud powered by Quarkus, MicroProfile and Kafka
@@ -384,7 +384,7 @@ Open a new browser tab and paste the result to view the graphical name cloud pow
 The url should look something like this: 
 [source,console]
 ----
-https://people-user-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/names.html
+http://people-user-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/names.html
 ----
 
 You should see a cloud of names updating every 5 seconds (it may take a few seconds for it to start!):

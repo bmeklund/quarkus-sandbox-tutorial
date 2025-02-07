@@ -109,7 +109,7 @@ quarkus.swagger-ui.always-include=true
 ----
 ====
 
-Since our app is still running, when you open the `index-webpage` in the *ENDPOINTS*.
+Since our app is still running, when you open the `user-port-forward` in the *ENDPOINTS*.
 
 image::weblink.png[swagger,700]
 

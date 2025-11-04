@@ -51,7 +51,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "hello";
+        return "hello from Quarkus REST";
     }
 }
 ----
@@ -63,10 +63,65 @@ It’s a very simple REST endpoint, returning *hello* to requests on `/hello`.
 Compared to vanilla JAX-RS, with Quarkus there is no need to create an `Application` class. It’s supported but not required. In addition, only one instance of the resource is created and not one per request. You can configure this using the different `Scoped` annotations (`ApplicationScoped`, `RequestScoped`, etc).
 ====
 
+## Open a terminal in the IDE
+
+In this lab guide you can either run commands from the command palette, or you can run the command manually in a terminal window. 
+To open up a terminal in your IDE follow the below steps.
+
+1. Click the hamburger menu on the left hand side
+
+image::hamburgermenu.png[port, 700]
+
+2. Hover over the Terminal menu item and then click ´New Terminal´ when it pops up.
+
+image::newterminal.png[port, 700]
+
+3. The terminal will be opened in the section below the file editor in your IDE, as below.
+
+image::openterminal.png[port, 700]
+
+4. Click in the terminal window and paste(allow paste if needed) alternatively type the commands manually.
+
 ## Running the Application in Live Coding Mode
 
 **Live Coding** (also referred to as _dev mode_) allows us to run the app and make changes on the fly. Quarkus will automatically re-compile and reload the app when changes are made. This is a powerful and efficient style of developing that you will use throughout the lab.
 
+[NOTE]
+====
+Before starting the dev mode, you need to append the a configuration to application.properties in the src/main/resources directory. This allows you to access the Dev UI from the cloud IDE since the Dev UI is designed for running your localhost.
+====
+
+Run the below command in a terminal window to get your sandbox domain.
+[source,sh,role="copypaste"]
+----
+oc get route -n $(oc project -q) code-with-quarkus -o jsonpath='{.spec.host}' | sed 's/^[^.]*\.//' ; echo
+----
+
+Then add the following configuration *plus the subdomain details you got from the above command* in application.properties
+
+[source,sh,role="copypaste"]
+----
+%dev.quarkus.dev-ui.hosts=%USER_ID%-quarkus-workshop-index-webpage.{{ ROUTE_SUBDOMAIN }}
+----
+
+The end result should resemble something like the below:
+
+`%dev.quarkus.dev-ui.hosts=myuser-quarkus-workshop-index-webpage.apps.rm21.0a51.p1.openshiftapps.com`
+
+### Live coding
+
+Ok, lets start our application in Dev Mode. In the same terminal as you used previously to get your domain - run the below command to start your application.
+
+[source,sh,role="copypaste"]
+----
+mvn clean quarkus:dev -Dquarkus.http.host=0.0.0.0 -Dquarkus.analytics.disabled=true
+----
+
+Leave this terminal window open throughout the lab! You will complete the entire lab without shutting down Quarkus Live Coding mode, so be careful not to close the tab (if you do, you re-run it). This is very useful for quick experimentation.
+
+When the dev mode starts, you will see a popup to access the welcome page.
+
+#### Using command palette
 You can always use the `mvn` (Maven) commands to run Quarkus apps, but we've created a few helpful *tasks* on the VS Code.
 
 Navigate the *Command Palette* menu or the press kbd:[Control+SHIFT+P] (or kbd:[Command+SHIFT+P] on macOS). 
@@ -87,7 +142,6 @@ A terminal opens automatically to run the *Quarkus Dev Mode*.
 
 image::cmd-livecoding.png[livecoding, 900]
 
-This will compile and run the app using `mvn compile quarkus:dev` in a Terminal window. Leave this terminal window open throughout the lab! You will complete the entire lab without shutting down Quarkus Live Coding mode, so be careful not to close the tab (if you do, you re-run it). This is very useful for quick experimentation.
 
 [NOTE]
 ====
@@ -155,7 +209,11 @@ You can also add `/hello` to the Quarkus welcome page to see the same result as 
 
 image::crw-open-page-hello.png[page, 800]
 
-When you fail to access the *hello* page, make sure to call the URL using *http* protocol.
+The result should say:
+
+```console
+Hello from Quarkus REST
+```
 
 ### Live reloading
 
@@ -185,7 +243,7 @@ Or run the following command in a new terminal window:
 
 [source,sh,role="copypaste"]
 ----
-mvn package -DskipTests
+mvn clean package -DskipTests
 ----
 
 This produces an executable jar file in the `target/quarkus-app/` directory:
@@ -196,7 +254,14 @@ image::jar.png[jar,800]
 
 ## Run the executable JAR
 
-Run the packaged application. Go back to the *command palette* again. Select `devfile: 05. Run Fast Jar` in the che tasks:
+Run the packaged application. Run the following command in the terminal:
+
+[source,sh,role="copypaste"]
+----
+java -Dquarkus.http.port=8081 -jar target/quarkus-app/quarkus-run.jar
+----
+
+OR Go back to the *command palette* again. Select `devfile: 05. Run Fast Jar` in the che tasks:
 
 image::run-fast-jar.png[run-fast-jar, 700]
 
@@ -215,7 +280,7 @@ curl http://localhost:8081/hello
 You should see:
 
 ```console
-hola
+hola from Quarkus REST
 ```
 
 ## Cleanup

@@ -20,12 +20,11 @@ oc get project %USER_ID%-dev
 
 You should see:
 
-[source, none]
-----
-NAME               DISPLAY NAME           STATUS
-{{USER_ID}}-dev    {{USER_ID}}-dev        Active
+|===
+| NAME | DISPLAY NAME | STATUS
+| %USER_ID%-dev | %USER_ID%-dev | Active
+|===
 
-----
 
 You can interact and manage resources on the OpenShift cluster via this CLI. We'll use the prettier web console later on in this lab.
 
@@ -127,23 +126,27 @@ hello quarkus-on-openshift from people-1-9sgsm
 Your hostname (the Kubernetes _pod_ in which your app runs) name will be different from the above.
 ====
 
-So now our app is deployed to OpenShift. You can also see it in the OpenShift Console from where you started the Dev Spaces instance. 
+So now our app is deployed to OpenShift. You can also see it in the OpenShift Console, access it from where you started the Dev Spaces instance or go to your Developer Sandbox page. 
 
 Login with your assigned username and password if you have been logged out:
 
 image::ocplogin.png[login,700]
 
-Once logged in, select the name of your project (`{{ USER_ID }}-dev`):
+Once logged in, select the name of your project (`youruser-dev`):
 
 image::ocpproj.png[project,700]
 
-Switch to the _Developer Perspective_ using the upper-left drop-down:
-
-image::devperspective.png[perspective, 800]
-
-This provides a developer-centric Topology view of applications deployed to the project. You can see the single `people` deployment that we just deployed earlier using the CLI:
+Select the *Workloads* tab in the project view.
+This provides an overview of applications deployed to the project. You can see the single `people` deployment that we just deployed using the CLI:
 
 image::peopledc.png[project,700]
+
+[NOTE]
+====
+If you just see a list of deployments, try to change the view by clicking on the ´Graph view´ icon to the right
+
+image::graphview.png[project,700]
+====
 
 Select the circle to get details:
 
@@ -155,11 +158,15 @@ image::podlogs.png[logs,800]
 
 This is the same output you saw earlier when you ran it "locally" with its super-fast startup time.
 
-Go back to the _Topology_ view. Since this app is exposed to the world, a _Route_ was created which you can access using the small arrow in the upper right of the circle. Select the route link:
+In the sidebar menu, switch to the Topology View using the drop-down under Workloads:
+
+image::devperspective.png[perspective, 500]
+
+Since this app is exposed to the world, a _Route_ was created which you can access using the small arrow in the upper right of the circle. Select the route link:
 
 image::routelink.png[logs,600]
 
-You can click on the route link to open up the default Quarkus page that's packaged as part of our workshop application.
+You can click on the route link, this will land you on a `Resource not found`-page but add */hello* at the end and you will get the traditional Hello response.
 
 == Connect MicroProfile health check
 

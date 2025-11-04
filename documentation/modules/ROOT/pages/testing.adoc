@@ -34,7 +34,7 @@ public class GreetingResourceTest {
           .when().get("/hello")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body(is("hello from Quarkus REST"));
     }
 }
 ----
@@ -129,13 +129,11 @@ There are various hotkeys you can use to control continuous testing. Pressing `h
 [q] - Quit the application
 ----
 
-Quarkus also provides a new experimental Dev UI, which is available in dev mode (when you start quarkus with mvn quarkus:dev) at `/q/dev` by default. It allows you to quickly visualize all the extensions currently loaded, see their status and go directly to their documentation.
+Quarkus also provides a Dev UI, which is available in dev mode (when you start quarkus with mvn quarkus:dev) at `/q/dev` by default. It allows you to quickly visualize all the extensions currently loaded, see their status and go directly to their documentation.
 
-To show up the public endpoints, select `Show plug-in endpoints`. Then, unfold the `ENDPOINTS > Public` and select the *User port forward(8080)* icon. In the page that opens add the */q/dev* at the end of the url to open the Dev UI.
+To find the Dev UI endpoint, unfold the `ENDPOINTS section in the lower left corner of your IDE. If needed click the eye icon to *Show plug-in endpoints*. In the Public section select the *index-webpage(8080/https)* row. When you hover over the index-webpage row an icon will appear as below. Click in the marked icon, this opens the Dev UI
 
 image::weblink.png[devui-page,700]
-
-Open a new web browser or tab window and paste the URL.
 
 image::quarkus-devui.png[devui-endpoint, 800]
 

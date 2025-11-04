@@ -113,7 +113,7 @@ image::auth-access.png[auth-access, 800]
 
 Once you log in, you’ll be placed on the *Create Workspace* dashboard. Copy the following `Git Repo URL` and select `Create & Open`. Make sure the rh-sandbox branch is used
 
-* *Git Repo URL*: `https://github.com/bmeklund/quarkus-workshop-m1m2-labs/tree/rh-sandbox`
+* *Git Repo URL*: `https://github.com/bmeklund/quarkus-workshop-m1m2-labs/tree/sandbox-rhbq3.20`
 
 image::ds-landing.png[ds, 800]
 
@@ -138,6 +138,9 @@ In case you see this information page, click on `Yes, I trust the authors`.
 
 image::ds-trust-popup.png[ds, 800]
 ====
+
+Also click *Yes and/or Approve* on any other pop up dialogs in the low right corner.  
+
 
 You'll use all of these during the course of this workshop, so keep this browser tab open throughout. **If things get weird, you can simply reload the browser tab to refresh the view.**
 

@@ -42,7 +42,7 @@ To connect to the running app, access the _debugger_ by selecting on the debug i
 
 image::crwdebug.png[buttons, 600]
 
-The debugger view will appear with several small buttons used to start/stop execution, step into/over/out of code, and other operations. Ensure that **Attach to App** is selected in the drop-down, and select the **Start Debugging** button to attach the debugger to the app:
+The debugger view will appear with several small buttons used to start/stop execution, step into/over/out of code, and other operations. Ensure that **Attach to Remote Quarkus App** is selected in the drop-down, and select the **Start Debugging** button to attach the debugger to the app:
 
 image::buttons.png[buttons, 600]
 
@@ -94,7 +94,7 @@ At this point, `len` is defined (and listed on the right side):
 
 image::len.png[length, 800]
 
-2.13.7.Final-redhat-00003 **Step Over** again, which executes the line to grab the last letter using `len` an offset to the `substring` method. See the bug? Look at the value of `lastLetter` in the variables list on the right - it's empty!
+**Step Over** again, which executes the line to grab the last letter using `len` an offset to the `substring` method. See the bug? Look at the value of `lastLetter` in the variables list on the right - it's empty!
 
 We need to pass an offset that is one _before_ the end, to get the last letter.
 
